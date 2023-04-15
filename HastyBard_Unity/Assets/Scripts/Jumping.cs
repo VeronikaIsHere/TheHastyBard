@@ -9,7 +9,7 @@ public class Jumping : MonoBehaviour
 
     public GameObject controller;
     float getLoudness = 0.0f;
-    public float amp = 18f;  // louder
+    public float amp = 100000000000000f;  // louder
     
     RaycastHit2D hit;
     Rigidbody2D rb;
@@ -46,17 +46,20 @@ public class Jumping : MonoBehaviour
 
         getLoudness = controller.GetComponent<MicControlC>().loudness * amp;  // get the loudness;
 
-        if (getLoudness > 0.001f && isGrounded)  // only jump if you make a noise and are not in the air;
+        if (getLoudness > 0.0001f && isGrounded)  // only jump if you make a noise and are not in the air;
         {
+            UnityEngine.Debug.Log(getLoudness);
             if (getLoudness < 3.5f )
             {
-                UnityEngine.Debug.Log(getLoudness);
-                jumpingStrength = Mathf.Clamp(jumpingStrength, 0.4f, 0.8f);  // min and max strength
+                
+                jumpingStrength = Mathf.Clamp(getLoudness, 0.4f, 0.8f);  // min and max strength
             } 
             else
             {
                 jumpingStrength = 1.0f;  // super loud scream
             }
+            
+            jumpingStrength = 1.0f;
             
             
             rb.AddForce(new Vector2(0, jumpingStrength), ForceMode2D.Impulse);
