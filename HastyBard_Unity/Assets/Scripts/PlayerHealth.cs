@@ -27,6 +27,10 @@ public class PlayerHealth : MonoBehaviour
         {
             SceneManager.LoadScene("replayscreen");  // game over
         }
+        else if (other.gameObject.tag == "Win")  // if colliding with win
+        {
+            SceneManager.LoadScene("winscreen");  // win
+        }
     }
 
 }
