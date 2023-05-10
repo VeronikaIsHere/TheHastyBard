@@ -8,17 +8,32 @@ public class PlayerHealth : MonoBehaviour
 {
 
     public GameObject DieBlock;
+    public GameObject[] hearts;
+    int heartnumber;
+    bool deleteheart;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        heartnumber = hearts.Length;
+        deleteheart = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(deleteheart == true)
+        {
+            hearts[heartnumber].gameObject.SetActive(false);  // remove ui heart
+            deleteheart=false;
+
+            if (heartnumber <= 0)
+            {
+                SceneManager.LoadScene("replayscreen");  // game over
+            }
+
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -30,7 +45,13 @@ public class PlayerHealth : MonoBehaviour
         else if (other.gameObject.tag == "Win")  // if colliding with win
         {
             SceneManager.LoadScene("winscreen");  // win
+        } 
+        else if(other.gameObject.tag == "enemy")  // collision with enemy
+        {
+            heartnumber--;
+            deleteheart = true;
         }
+
     }
 
 }
