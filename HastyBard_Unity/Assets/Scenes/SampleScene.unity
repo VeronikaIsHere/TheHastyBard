@@ -2805,7 +2805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6c0e3e83760da4fa2f498e6e9a6c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DieBlock: {fileID: 0}
+  DieBlock: {fileID: 101455337}
 --- !u!114 &1068314236
 MonoBehaviour:
   m_ObjectHideFlags: 0
