@@ -12,12 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/replayscreen.unity
     guid: 9746562d456eef74694ab916b4ce969d
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/creditscreen.unity
     guid: c8c22580256c3cf4f9da00f942fb23be
   - enabled: 1
     path: Assets/Scenes/winscreen.unity
     guid: 9d61ebe1dcf700049be8e992e0a5ab9b
+  - enabled: 1
+    path: Assets/Scenes/theLevel_1.unity
+    guid: 2178e888d8372594e88df63a20365db9
+  - enabled: 1
+    path: Assets/Scenes/theLevel_2.unity
+    guid: b8d142dd526695043a5ca287b63ae050
+  - enabled: 1
+    path: Assets/Scenes/theLevel_3.unity
+    guid: 93b8b0cb5ad73ca429b4d286434a32b8
   m_configObjects: {}

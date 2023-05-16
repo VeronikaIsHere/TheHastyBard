@@ -45,11 +45,19 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.tag == "DieGround")  // if colliding with dieground
         {
             SceneManager.LoadScene("replayscreen");  // game over
-        }
+        } 
         else if (other.gameObject.tag == "Win")  // if colliding with win
         {
             SceneManager.LoadScene("winscreen");  // win
         } 
+        else if (other.gameObject.tag == "nextLevel2")
+        {
+            SceneManager.LoadScene("theLevel_2");  // win
+        }
+        else if (other.gameObject.tag == "nextLevel3")
+        {
+            SceneManager.LoadScene("theLevel_3");  // win
+        }
         else if(other.gameObject.tag == "enemy")  // collision with enemy
         {
 
