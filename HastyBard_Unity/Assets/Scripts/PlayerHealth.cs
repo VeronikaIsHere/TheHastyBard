@@ -12,11 +12,15 @@ public class PlayerHealth : MonoBehaviour
     int heartnumber;
     bool deleteheart;
 
+    CharacterInvulnerability invulnerabilityScript; // Reference to the CharacterInvulnerability script
+
     // Start is called before the first frame update
     void Start()
     {
         heartnumber = hearts.Length;
         deleteheart = false;
+
+        invulnerabilityScript = GetComponent<CharacterInvulnerability>(); // Get the CharacterInvulnerability script attached to Player GameObject
     }
 
     // Update is called once per frame
@@ -48,8 +52,15 @@ public class PlayerHealth : MonoBehaviour
         } 
         else if(other.gameObject.tag == "enemy")  // collision with enemy
         {
-            heartnumber--;
-            deleteheart = true;
+
+            if (!invulnerabilityScript.IsInvulnerable()) // Check if the character is currently invulnerable
+            {
+                heartnumber--;
+                deleteheart = true;
+
+            }
+
+
         }
 
     }
