@@ -7,17 +7,19 @@ using UnityEngine.Windows.Speech;
 
 public class Voice : MonoBehaviour
 {
-
     private KeywordRecognizer keywordRecognizer;
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
     private CharacterInvulnerability invulnerabilityScript; // Reference to the CharacterInvulnerability script
     private Renderer rendererComponent;
 
+    private bool isProtectOnCooldown = false; // Flag to track if Protect is on cooldown
+    public float protectCooldownDuration = 10f; // Cooldown duration for the Protect method
+    private Coroutine protectCooldownCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
-        actions.Add("block", Block);
-        actions.Add("forward", Forward);
+        actions.Add("protect", Protect);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
@@ -25,8 +27,6 @@ public class Voice : MonoBehaviour
 
         invulnerabilityScript = GetComponentInParent<CharacterInvulnerability>(); // Get the CharacterInvulnerability script attached to the parent GameObject
         rendererComponent = GetComponent<Renderer>();
-
-
     }
 
     private void RecognizedSpeech(PhraseRecognizedEventArgs speech)
@@ -35,21 +35,22 @@ public class Voice : MonoBehaviour
         actions[speech.text].Invoke();
     }
 
-    private void Forward()
+    private void Protect()
     {
+        if (isProtectOnCooldown)
+        {
+            Debug.Log("Protect is on cooldown");
+            return;
+        }
+
         invulnerabilityScript.StartInvulnerability();
+        StartCoroutine(ProtectCooldownCoroutine());
     }
 
-    private void Block()
+    private IEnumerator ProtectCooldownCoroutine()
     {
-        transform.Translate(0, 5, 0);
-    }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        isProtectOnCooldown = true;
+        yield return new WaitForSeconds(protectCooldownDuration);
+        isProtectOnCooldown = false;
     }
 }
