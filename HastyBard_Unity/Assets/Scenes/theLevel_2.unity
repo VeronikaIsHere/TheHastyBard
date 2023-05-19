@@ -54372,7 +54372,11 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 873782713}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8155917604408910847, guid: 40fc4020bafd15f48a7389a7fd7d8d8c, type: 3}
+    - {fileID: 8155917604408910841, guid: 40fc4020bafd15f48a7389a7fd7d8d8c, type: 3}
+    - {fileID: 8155917604408910842, guid: 40fc4020bafd15f48a7389a7fd7d8d8c, type: 3}
+    - {fileID: 8155917604408910840, guid: 40fc4020bafd15f48a7389a7fd7d8d8c, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8155917604269731344, guid: 40fc4020bafd15f48a7389a7fd7d8d8c, type: 3}
       insertIndex: -1

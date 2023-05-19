@@ -54009,7 +54009,11 @@ PrefabInstance:
       propertyPath: hearts.Array.data[2]
       value: 
       objectReference: {fileID: 1767558624}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6531304103928813174, guid: 762b648dfdd76b54fa42b4c4f6c344a7, type: 3}
+    - {fileID: 6531304103928813168, guid: 762b648dfdd76b54fa42b4c4f6c344a7, type: 3}
+    - {fileID: 6531304103928813171, guid: 762b648dfdd76b54fa42b4c4f6c344a7, type: 3}
+    - {fileID: 6531304103928813169, guid: 762b648dfdd76b54fa42b4c4f6c344a7, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 762b648dfdd76b54fa42b4c4f6c344a7, type: 3}
 --- !u!1001 &3688911009634172245
